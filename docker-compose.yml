@@ -1,0 +1,22 @@
+version: '3'
+services:
+  supertokens-api:
+    image: supertokens-api:dev
+    container_name: supertokens-api
+    restart: always
+    # env_file: .env
+    # environment:
+    #   - NODE_ENV=development
+    ports:
+      - '3001:3001'
+    working_dir: /usr/src/app
+    # volumes:
+    #   - ~/workspace/ssl/:/usr/src/app/ssl/:ro
+
+  supertokens-web:
+    image: supertokens-web:dev
+    container_name: supertokens-web
+    restart: always
+    ports:
+      - '3001:3001'
+    working_dir: /usr/src/app
