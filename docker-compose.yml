@@ -18,5 +18,5 @@ services:
     container_name: supertokens-web
     restart: always
     ports:
-      - '3001:3001'
+      - '3000:3000'
     working_dir: /usr/src/app
