@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { SessionContainer } from 'supertokens-node/recipe/session';
 import { AppService } from './app.service';
 import { AuthGuard } from './auth/auth.guard';
@@ -21,6 +21,17 @@ export class AppController {
       userId: session.getUserId(),
       accessTokenPayload: session.getAccessTokenPayload(),
     };
+  }
+
+  @Post('generateToken')
+  async generateToken(@Body() body: any) {
+    let token = await this.appService.generateToken(body);
+    return { accessToken: token };
+  }
+
+  @Post('verifyToken')
+ async verifyToken(@Body() body: any) {
+    return await this.appService.verifyToken(body.accessToken);
   }
 
   getUserInfo() {

@@ -1,6 +1,7 @@
 import ThirdPartyEmailPassword from 'supertokens-node/recipe/thirdpartyemailpassword';
 import Session from 'supertokens-node/recipe/session';
 import Dashboard from 'supertokens-node/recipe/dashboard';
+import jwt from "supertokens-node/recipe/jwt"
 
 export const appInfo = {
   // Learn more about this on https://supertokens.com/docs/thirdpartypasswordless/appinfo
@@ -11,7 +12,8 @@ export const appInfo = {
   websiteBasePath: '/auth',
 };
 
-export const connectionUri = 'http://localhost:3567';
+// export const connectionUri = 'http://localhost:3567';
+export const connectionUri = 'https://try.supertokens.com';
 
 export const recipeList = [
   ThirdPartyEmailPassword.init({
@@ -42,4 +44,5 @@ export const recipeList = [
   Dashboard.init({
     apiKey: 'supertokens_is_awesome',
   }),
+  jwt.init()
 ];
