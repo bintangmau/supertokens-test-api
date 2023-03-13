@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 import jwt from "supertokens-node/recipe/jwt";
 import { JwtHeader, SigningKeyCallback, verify } from 'jsonwebtoken';
 import * as jwksClient from 'jwks-rsa';
 
 @Injectable()
-export class AppService {
+export class LocalAuthCore {
 
   async generateToken(payload: any)  {
     let jwtResposne = await jwt.createJWT({
@@ -35,7 +35,4 @@ export class AppService {
     });
   }
 
-  getHello(): string {
-    return 'Hello World!';
-  }
 }

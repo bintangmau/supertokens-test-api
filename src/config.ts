@@ -13,10 +13,19 @@ export const appInfo = {
 };
 
 // export const connectionUri = 'http://localhost:3567';
-export const connectionUri = 'https://try.supertokens.com';
+// export const connectionUri = 'https://try.supertokens.com';
+export const connectionUri = 'https://corepublic.info';
+
 
 export const recipeList = [
   ThirdPartyEmailPassword.init({
+    signUpFeature: {
+      formFields: [
+        {
+          id: "username"
+        }
+      ]
+    },  
     providers: [
       // We have provided you with development keys which you can use for testing.
       // IMPORTANT: Please replace them with your own OAuth keys for production use.

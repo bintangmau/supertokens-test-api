@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import * as SuperTokensConfig from './config';
+import { LocalAuthModule } from './local-auth/local-auth.module';
+import { PrismaModule } from './prisma/prisma.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -12,8 +13,9 @@ import * as SuperTokensConfig from './config';
       // apiKey: "IF YOU HAVE AN API KEY FOR THE CORE, ADD IT HERE",
       appInfo: SuperTokensConfig.appInfo,
     }),
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    UsersModule,
+    LocalAuthModule,
+    PrismaModule,
+  ]
 })
 export class AppModule {}
